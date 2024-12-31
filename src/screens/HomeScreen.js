@@ -50,10 +50,15 @@ const HomeScreen = ({navigation}) => {
 
 
   return (
-    <ImageBackground source={require('../../assets/images/building.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../../assets/images/greenbackground.png')} style={styles.backgroundImage}>
       <View style={[styles.view]}>
-      <View style={styles.brand}>
-        <Text style={styles.text}>Greenhooks.com</Text>
+      <ImageBackground source={require('../../assets/images/GH_INTRO_BANNER.jpg')} style={styles.brand}>
+
+      </ImageBackground>
+      <View style={styles.TPTextView}>
+        <ImageBackground style={styles.shadowbdr} source={require('../../assets/images/shadow_bdr.gif')}>
+          <Text style={{textAlign: 'center'}}>Top Producers</Text>  
+        </ImageBackground>
       </View>  
         {state.moreProducers && state.moreProducers.length > 0 ? 
             <FlatList 
@@ -84,43 +89,45 @@ const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 25,
+    fontSize: 20,
     color: 'white'
+  },
+  shadowbdr: {
+    width: 250,
+    padding: 10,
+    marginBottom: 20,
+    justifyContent: 'center', 
+    alignItems: 'center' ,
+    resizeMode: 'cover'
   },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover', // or 'stretch'
   },
-  resultContainer: {
+  TPTextView: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: 'center'
   },
   view: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
+      flex: 1
   },
   brand: {
     flex: 1,
     width: 440,
-    marginBottom: 35,
-    backgroundColor: 'green',
-    justifyContent: 'center',
-    alignItems: 'center'
+    marginBottom: 12,
+    resizeMode: 'contain', // or 'stretch'
+    borderBottomWidth: 2,
+    borderBottomColor: 'green'
 },
   resultText: {
-    color: '#007749',
-    fontSize: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingLeft: 5,
-    marginBottom: 5
-  },
-  backgroundImage: {
-      flex: 1,
-      resizeMode: 'cover', // or 'stretch'
+    color: 'white',
+    width: 390,
+    padding: 10,
+    alignSelf: 'center',
   },
   footer: {
-      fontSize: 15,
+      fontSize: 12,
       color: 'white',
       alignSelf: 'center',
       marginTop: 25,
